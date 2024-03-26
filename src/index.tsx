@@ -1,19 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import '@fontsource/ibm-plex-mono' // Defaults to weight 400
+import '@fontsource/ibm-plex-mono/400.css' // Specify weight
+import '@fontsource/ibm-plex-mono/400-italic.css' // Specify weight and style
+import Project from './pages/Projects/Project'
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project" element={<Project />} />
+      </Routes>
+      <Footer />
+    </Router>
+  </React.StrictMode>,
+)
