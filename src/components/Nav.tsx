@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react'
-import Dropdown from './Dropdown'
 import Logo from './Logo'
 import MenuButton from './MenuButton'
+import NavList from './NavList'
 
 function Nav() {
-  const [showDropdown, setShowDropdown] = useState(false)
-  const [mobile, setMobile] = useState(window.innerWidth <= 768)
+  const [showNavList, setshowNavList] = useState(false)
+  const [isMobile, setMobile] = useState(window.innerWidth <= 768)
 
   const handleButtonClick = () => {
-    setShowDropdown(!showDropdown)
+    setshowNavList(!showNavList)
   }
 
   const handleDarkButtonClick = () => {
-    setShowDropdown(!showDropdown)
+    setshowNavList(!showNavList)
   }
 
   const handleWindowSizeChange = () => {
     const isMobile = window.innerWidth <= 768
-    setShowDropdown(false)
+    setshowNavList(false)
     setMobile(isMobile)
   }
 
@@ -31,18 +31,17 @@ function Nav() {
   return (
     <nav className="fixed top-0 w-full bg-black h-20 z-20 ">
       <div className="container mx-auto px-2 sm:px-3 flex items-center justify-between h-20">
-        {' '}
         <div className="flex justify-start">
           <Logo />
         </div>
-        <Dropdown
-          mobile={mobile}
-          showDropdown={showDropdown}
+        <NavList
+          isMobile={isMobile}
+          showNavList={showNavList}
           handleDarkButtonClick={handleDarkButtonClick}
         />
         <div className="flex justify-end block md:hidden">
           <MenuButton
-            showDropdown={showDropdown}
+            showNavList={showNavList}
             handleButtonClick={handleButtonClick}
           />
         </div>
