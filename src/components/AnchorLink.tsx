@@ -18,7 +18,10 @@ function AnchorLink({
 
   return (
     <li className="text-sm flex-col relative flex justify-center items-center">
-      <a href={page + anchor} onClick={handleClick} className="p-3">
+      <a
+        href={page + anchor}
+        onClick={handleClick}
+        className="p-3 w-full font-semibold hover:bg-white hover:text-black ">
         {label}
       </a>
     </li>

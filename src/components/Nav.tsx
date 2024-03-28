@@ -32,7 +32,7 @@ function Nav() {
     <nav className="fixed top-0 w-full bg-black h-20 z-20 ">
       <div className="container mx-auto px-2 sm:px-3 flex items-center justify-between h-20">
         <div className="flex justify-start">
-          <Logo />
+          <Logo isMobile={isMobile} />
         </div>
         <NavList
           isMobile={isMobile}

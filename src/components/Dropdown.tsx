@@ -14,14 +14,14 @@ function Dropdown({
   return (
     <>
       <div className="w-full relative flex justify-center">
-        {' '}
         <ul
           className={`transition-all duration-300 rounded ${
-            isMobile ? '' : 'pt-1 w-full absolute bg-black shadow-sm'
+            isMobile
+              ? ''
+              : 'w-full absolute translate-y-2 bg-black shadow-sm border-2 border-white'
           } ${
             showDropdown ? 'h-56 opacity-100' : 'h-0 opacity-0 overflow-hidden'
           }`}>
-          {' '}
           <AnchorLink
             page="/"
             anchor="#section1"
