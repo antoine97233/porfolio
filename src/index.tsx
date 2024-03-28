@@ -18,7 +18,7 @@ root.render(
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/project" element={<Project />} />
+        <Route path="/projects" element={<Project />} />
       </Routes>
       <Footer />
     </Router>

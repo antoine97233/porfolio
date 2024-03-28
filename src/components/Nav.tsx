@@ -38,6 +38,7 @@ function Nav() {
           isMobile={isMobile}
           showNavList={showNavList}
           handleDarkButtonClick={handleDarkButtonClick}
+          closeNavList={() => setshowNavList(false)}
         />
         <div className="flex justify-end block md:hidden">
           <MenuButton

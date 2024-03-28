@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Dropdown from './Dropdown'
 import { Link } from 'react-router-dom'
 
@@ -7,14 +7,17 @@ function NavLink({
   link,
   linkType,
   label,
+  closeNavList,
+  showNavList,
 }: {
   isMobile: boolean
   link: string
   linkType: string
   label: string
+  closeNavList: () => void
+  showNavList: boolean
 }) {
   const dropdownLink = linkType === 'dropdown'
-  const anchorLink = linkType === 'anchor'
   const pageLink = linkType === 'page'
 
   const [showDropdown, setShowDropdown] = useState(false)
@@ -23,32 +26,35 @@ function NavLink({
     setShowDropdown(!showDropdown)
   }
 
+  useEffect(() => {
+    if (!showNavList) {
+      setShowDropdown(false)
+    }
+  }, [showNavList])
+
   if (dropdownLink) {
     return (
-      <li className="flex-col relative flex justify-center items-center">
+      <li className="relative uppercase flex-col relative flex justify-center items-center w-32">
         <button
           onClick={handleButtonClick}
-          className="px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
+          className="uppercase px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
           {label}
         </button>
-        {showDropdown && <Dropdown isMobile={isMobile} />}
-      </li>
-    )
-  } else if (anchorLink) {
-    return (
-      <li className=" flex justify-center items-center">
-        <a
-          href={link}
-          className="px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
-          {label}
-        </a>
+
+        <Dropdown
+          isMobile={isMobile}
+          closeNavList={closeNavList}
+          closeDropdown={() => setShowDropdown(false)}
+          showDropdown={showDropdown}
+        />
       </li>
     )
   } else if (pageLink) {
     return (
-      <li className=" flex justify-center items-center">
+      <li className="uppercase flex justify-center items-center">
         <Link
           to={link}
+          onClick={closeNavList}
           className="px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
           {label}
         </Link>

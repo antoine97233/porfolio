@@ -1,17 +1,64 @@
 import AnchorLink from './AnchorLink'
 
-function Dropdown({ isMobile }: { isMobile: boolean }) {
+function Dropdown({
+  isMobile,
+  closeNavList,
+  closeDropdown,
+  showDropdown,
+}: {
+  isMobile: boolean
+  closeNavList: () => void
+  closeDropdown: () => void
+  showDropdown: boolean
+}) {
   return (
     <>
-      {isMobile ? (
-        <div className="w-full">
-          <ul>
-            <AnchorLink />
-          </ul>
-        </div>
-      ) : (
-        <div></div>
-      )}
+      <div className="w-full relative flex justify-center">
+        {' '}
+        <ul
+          className={`transition-all duration-300 rounded ${
+            isMobile ? '' : 'pt-1 w-full absolute bg-black shadow-sm'
+          } ${
+            showDropdown ? 'h-56 opacity-100' : 'h-0 opacity-0 overflow-hidden'
+          }`}>
+          {' '}
+          <AnchorLink
+            page="/"
+            anchor="#section1"
+            label="Profile"
+            closeNavList={closeNavList}
+            closeDropdown={closeDropdown}
+          />
+          <AnchorLink
+            page="/"
+            anchor="#section2"
+            label="Experience"
+            closeNavList={closeNavList}
+            closeDropdown={closeDropdown}
+          />
+          <AnchorLink
+            page="/"
+            anchor="#section2"
+            label="School"
+            closeNavList={closeNavList}
+            closeDropdown={closeDropdown}
+          />
+          <AnchorLink
+            page="/"
+            anchor="#section2"
+            label="Skills"
+            closeNavList={closeNavList}
+            closeDropdown={closeDropdown}
+          />
+          <AnchorLink
+            page="/"
+            anchor="#section2"
+            label="Contact"
+            closeNavList={closeNavList}
+            closeDropdown={closeDropdown}
+          />
+        </ul>
+      </div>
     </>
   )
 }

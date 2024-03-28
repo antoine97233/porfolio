@@ -9,7 +9,7 @@ function DarkModeButton({
   return (
     <button
       onClick={handleDarkButtonClick}
-      className="px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
+      className="w-32 px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
       <FontAwesomeIcon icon={faMoon} />
     </button>
   )
