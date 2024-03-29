@@ -21,7 +21,7 @@ function AnchorLink({
       <a
         href={page + anchor}
         onClick={handleClick}
-        className="p-3 w-full font-semibold hover:bg-white hover:text-black ">
+        className="p-3 w-full font-semibold hover:bg-violet-400 hover:text-black ">
         {label}
       </a>
     </li>

@@ -18,7 +18,7 @@ function Dropdown({
           className={`transition-all duration-300 rounded ${
             isMobile
               ? ''
-              : 'w-full absolute translate-y-2 bg-black shadow-sm border-2 border-white'
+              : 'w-full absolute translate-y-2 bg-black shadow-lg border-2 border-white'
           } ${
             showDropdown ? 'h-56 opacity-100' : 'h-0 opacity-0 overflow-hidden'
           }`}>

@@ -1,4 +1,4 @@
-import DarkModeButton from './DarkModeButton'
+import DarkModeButton from '../DarkModeButton'
 import NavLink from './NavLink'
 
 function NavList({

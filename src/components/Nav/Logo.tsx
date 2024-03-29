@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import LogoBlack from '../assets/logo_black.svg'
-import LogoExtendBlack from '../assets/logo_extend_black.svg'
+import LogoBlack from '../../assets/logo_black.svg'
+import LogoExtendBlack from '../../assets/logo_extend_black.svg'
 
 function Logo({ isMobile }: { isMobile: boolean }) {
   return (

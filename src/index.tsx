@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import Nav from './components/Nav'
+import Nav from './components/Nav/Nav'
 import Footer from './components/Footer'
 
 import '@fontsource/ibm-plex-mono' // Defaults to weight 400
@@ -20,7 +20,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Project />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   </React.StrictMode>,
 )

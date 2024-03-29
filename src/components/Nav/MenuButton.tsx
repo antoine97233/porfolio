@@ -1,5 +1,5 @@
-import CrossBlack from '../assets/cross_black.svg'
-import BurgerBlack from '../assets/burger_black.svg'
+import CrossBlack from '../../assets/cross_black.svg'
+import BurgerBlack from '../../assets/burger_black.svg'
 
 function MenuButton({
   showNavList,

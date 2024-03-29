@@ -1,9 +1,21 @@
-function Section({ sectionId, color }: { sectionId: string; color: string }) {
+import Container from './Container'
+
+function Section({
+  sectionId,
+  color,
+  sectionTitle,
+  isMobile,
+}: {
+  sectionId: string
+  color: string
+  sectionTitle: string
+  isMobile: boolean
+}) {
   return (
     <section
       id={sectionId}
-      className={`relative w-full h-screen flex justify-center items-center ${color}`}>
-      <div className="relative top-5 container bg-white"></div>
+      className={`flex items-center w-full relative ${color} md:h-screen md:justify-center bg-gradient-to-r from-transparent from-5% to-indigo-500`}>
+      <Container isMobile={isMobile} />
     </section>
   )
 }
