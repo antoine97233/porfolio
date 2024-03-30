@@ -17,11 +17,11 @@ function AnchorLink({
   }
 
   return (
-    <li className="text-sm flex-col relative flex justify-center items-center">
+    <li className="text-sm  flex-col relative flex justify-center items-center ">
       <a
         href={page + anchor}
         onClick={handleClick}
-        className="p-3 w-full font-semibold hover:bg-violet-400 hover:text-black ">
+        className="p-3.5  w-full font-semibold hover:bg-gradient-to-r background-animate from-cyan-500 to-blue-500 hover:text-black ">
         {label}
       </a>
     </li>

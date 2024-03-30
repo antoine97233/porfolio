@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import Section from '../../components/Section'
+import UserContainer from '../../components/UserContainer'
+import Contact from '../../components/Contact'
 
 function Home() {
   const [isMobile, setMobile] = useState(window.innerWidth <= 768)
@@ -18,12 +19,13 @@ function Home() {
 
   return (
     <main className="relative z-10">
-      <Section
+      <UserContainer
         sectionId="section1"
         color="bg-purple-500"
         sectionTitle="About"
         isMobile={isMobile}
       />
+      <Contact isMobile={isMobile} />
     </main>
   )
 }

@@ -16,7 +16,7 @@ function NavList({
     <>
       {isMobile ? (
         <div
-          className={`position: fixed top-0 right-0 w-full bg-black bg-opacity-75 flex justify-center h-full items-center overflow-hidden transition-opacity duration-300 z-10 ${
+          className={`position: fixed top-0 right-0 w-full bg-black bg-opacity-90 flex justify-center h-full items-center overflow-hidden transition-opacity duration-300 z-10 ${
             showNavList ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}>
           <ul className="text-center text-white font-bold text-xl">
@@ -24,7 +24,7 @@ function NavList({
               isMobile={isMobile}
               link="/"
               linkType="dropdown"
-              label="About"
+              label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
             />
@@ -46,7 +46,7 @@ function NavList({
               isMobile={isMobile}
               link="/"
               linkType="dropdown"
-              label="About"
+              label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
             />
