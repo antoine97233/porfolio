@@ -37,7 +37,7 @@ function NavLink({
       <li className="relative uppercase flex-col relative flex justify-center items-center w-32">
         <button
           onClick={handleButtonClick}
-          className="uppercase px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
+          className="uppercase px-3 py-7 transition-transform duration-100 transform hover:-translate-y-0.5">
           {label}
         </button>
 
@@ -55,7 +55,7 @@ function NavLink({
         <Link
           to={link}
           onClick={closeNavList}
-          className="px-3 py-7 transition-transform duration-300 transform hover:-translate-y-0.5">
+          className="px-3 py-7 transition-transform duration-100 transform hover:-translate-y-0.5">
           {label}
         </Link>
       </li>

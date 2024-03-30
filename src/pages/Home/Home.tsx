@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import UserContainer from '../../components/UserContainer'
-import Contact from '../../components/Contact'
+import Contact from '../../components/Footer/Footer'
+import UserContainer from '../../components/About/UserContainer'
 
 function Home() {
   const [isMobile, setMobile] = useState(window.innerWidth <= 768)

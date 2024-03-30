@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import LogoBlack from '../../assets/logo_black.svg'
+import LogoBlack from '../../assets/svg/logo.svg'
 
-function Logo({ isMobile }: { isMobile: boolean }) {
+function Logo() {
   return (
     <div className="transition-transform duration-300 transform">
       <Link to="/">

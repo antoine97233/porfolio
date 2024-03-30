@@ -4,7 +4,7 @@ import './index.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Nav from './components/Nav/Nav'
-import Footer from './components/Contact'
+import Footer from './components/Footer/Footer'
 
 import '@fontsource/ibm-plex-mono' // Defaults to weight 400
 import '@fontsource/ibm-plex-mono/400.css' // Specify weight

@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import OpenContainerButton from './OpenContainerButton'
 import Accordion from './Accordion'
-import UserImage from './UserImage'
 import SkillElement from './SkillElement'
-import React from '../assets/react.svg'
-import NestJs from '../assets/nestjs.svg'
-import Symfony from '../assets/symfony.svg'
+import Github from '../../assets/svg/github.svg'
+import Link from '../../assets/svg/link.svg'
+import Symfony from '../../assets/svg/symfony.svg'
+import NestJs from '../../assets/svg/nestjs.svg'
+import React from '../../assets/svg/react.svg'
+import UserImage from './UserImage'
 import ExternalLink from './ExternalLink'
-import Github from '../assets/github.svg'
-import Linkedin from '../assets/linkedin.svg'
-import Cv from '../assets/cv.svg'
 
 function UserContainer({
   sectionId,
@@ -30,10 +29,12 @@ function UserContainer({
   return (
     <section
       id={sectionId}
-      className={`flex flex-col items-center w-full relative ${color} md:h-screen md:justify-center bg-gradient-to-r from-transparent from-5% to-indigo-500`}>
+      className={`flex flex-col items-center w-full relative ${color} md:h-screen md:justify-center bg-gradient-to-r from-transparent from-5% to-indigo-500 ${
+        isMobile ? 'min-h-screen' : ''
+      }`}>
       <div
         id="sectionProfile"
-        className="py-32 max-w-screen-lg mx-auto h-3/4 rounded px-4">
+        className="pt-32 pb-10 max-w-screen-lg mx-auto h-3/4 rounded px-4">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="md:col-span-2">
             <h1 className="text-5xl uppercase font-extrabold mb-4">
@@ -67,13 +68,7 @@ function UserContainer({
                 />
                 <ExternalLink
                   link="test"
-                  logo={Linkedin}
-                  label="Linkedin"
-                  isMobile={isMobile}
-                />
-                <ExternalLink
-                  link="test"
-                  logo={Cv}
+                  logo={Link}
                   label="CV"
                   isMobile={isMobile}
                 />

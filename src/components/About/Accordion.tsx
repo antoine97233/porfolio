@@ -1,7 +1,7 @@
 function Accordion({ openAccordion }: { openAccordion: boolean }) {
   return (
     <div
-      className={`accordion overflow-hidden transition-all duration-500 ${
+      className={`mt-8 accordion overflow-hidden transition-all duration-500 ${
         openAccordion ? 'h-64 opacity-100' : 'h-0 opacity-0'
       }`}>
       <p className="text-sm leading-6">

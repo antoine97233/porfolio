@@ -16,7 +16,7 @@ function UserImage({
       }`}>
       <div
         id="image"
-        className={`rounded-full border shadow-lg overflow-hidden transition-all duration-500 ${
+        className={`rounded-full pt-2 border shadow-lg overflow-hidden transition-all duration-500 ${
           openAccordion && isMobile
             ? 'background-animate w-48 h-60 opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : ' w-48 h-0 opacity-0 '
@@ -25,7 +25,10 @@ function UserImage({
             ? 'background-animate w-64 h-auto opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : 'w-64 h-0 opacity-0 '
         }`}>
-        <img src={require('../assets/user_image.png')} alt="Antoine Jolivet" />
+        <img
+          src={require('../../assets/user_image.png')}
+          alt="Antoine Jolivet"
+        />
       </div>
     </div>
   )

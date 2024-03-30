@@ -1,5 +1,3 @@
-import Section from '../../components/UserContainer'
-
 function Project() {
   return (
     <main className="relative z-10 ">

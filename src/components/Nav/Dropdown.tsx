@@ -34,7 +34,7 @@ function Dropdown({
 
           <AnchorLink
             page="/"
-            anchor="#section2"
+            anchor="#contact"
             label="Contact"
             closeNavList={closeNavList}
             closeDropdown={closeDropdown}
