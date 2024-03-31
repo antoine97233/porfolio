@@ -4,7 +4,23 @@ import Phone from '../../assets/svg/phone.svg'
 
 import FooterLink from './FooterLink'
 
-function Footer({ isMobile }: { isMobile: boolean }) {
+interface ContactData {
+  email: string
+  tel: string
+  linkedin: string
+}
+
+function Footer({
+  isMobile,
+  email,
+  tel,
+  linkedin,
+}: {
+  isMobile: boolean
+  email?: string
+  tel?: string
+  linkedin?: string
+}) {
   return (
     <footer
       id="contact"
@@ -13,24 +29,30 @@ function Footer({ isMobile }: { isMobile: boolean }) {
       }`}>
       <div className="container relative max-w-screen-lg mx-auto">
         <div className="absolute flex flex-items right-0 gap-4 p-4">
-          <FooterLink
-            link="test"
-            logo={Linkedin}
-            label="Linkedin"
-            isMobile={isMobile}
-          />
-          <FooterLink
-            link="test"
-            logo={Email}
-            label="Email"
-            isMobile={isMobile}
-          />
-          <FooterLink
-            link="test"
-            logo={Phone}
-            label="Phone"
-            isMobile={isMobile}
-          />
+          {linkedin && (
+            <FooterLink
+              link={linkedin}
+              logo={Linkedin}
+              label="Linkedin"
+              isMobile={isMobile}
+            />
+          )}
+          {email && (
+            <FooterLink
+              link={`mailto:${email}`}
+              logo={Email}
+              label="Email"
+              isMobile={isMobile}
+            />
+          )}
+          {tel && (
+            <FooterLink
+              link={`tel:${tel}`}
+              logo={Phone}
+              label="Phone"
+              isMobile={isMobile}
+            />
+          )}
         </div>
       </div>
     </footer>

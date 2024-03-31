@@ -1,7 +1,9 @@
-function UserImage({
+function ContainerImage({
+  image,
   openAccordion,
   isMobile,
 }: {
+  image?: string
   openAccordion: boolean
   isMobile: boolean
 }) {
@@ -25,13 +27,10 @@ function UserImage({
             ? 'background-animate w-64 h-auto opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : 'w-64 h-0 opacity-0 '
         }`}>
-        <img
-          src={require('../../assets/user_image.png')}
-          alt="Antoine Jolivet"
-        />
+        {image && <img src={image} alt="User" />}
       </div>
     </div>
   )
 }
 
-export default UserImage
+export default ContainerImage

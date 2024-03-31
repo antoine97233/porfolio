@@ -1,20 +1,28 @@
 import Arrow from '../../assets/svg/arrow.svg'
 
-function OpenContainerButton({
+function AccordionButton({
   openAccordion,
   isOpenAccordion,
+  buttonColors,
+  dataType,
 }: {
   openAccordion: () => void
   isOpenAccordion: boolean
+  buttonColors: string[]
+  dataType: string
 }) {
   return (
     <div>
       <a
-        href={`${isOpenAccordion ? '#moreSection' : '#section1'}`}
+        href={`${isOpenAccordion ? '#moreSection' : '#about'}`}
         className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${
           isOpenAccordion
-            ? 'background-animate bg-gradient-to-r from-cyan-400 to-blue-500'
-            : 'background-animate bg-gradient-to-r from-cyan-500 to-blue-500'
+            ? `background-animate bg-gradient-to-r ${
+                dataType === 'user' ? buttonColors[0] : buttonColors[2]
+              }`
+            : `background-animate bg-gradient-to-r ${
+                dataType === 'user' ? buttonColors[1] : buttonColors[3]
+              }`
         }`}
         onClick={openAccordion}>
         {isOpenAccordion ? 'Less' : 'More'}
@@ -33,4 +41,4 @@ function OpenContainerButton({
   )
 }
 
-export default OpenContainerButton
+export default AccordionButton

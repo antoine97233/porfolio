@@ -26,7 +26,7 @@ function Dropdown({
           }`}>
           <AnchorLink
             page="/"
-            anchor="#section1"
+            anchor="#about"
             label="About"
             closeNavList={closeNavList}
             closeDropdown={closeDropdown}
