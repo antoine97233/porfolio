@@ -1,15 +1,38 @@
 import AnchorLink from './AnchorLink'
 
+interface SectionData {
+  id: number
+  fullName: string
+  title: string
+  subtitle: string
+  shortDescription: string
+  longDescription: string
+  thumbnail: string
+  github: string
+  skills: skills[]
+  email: string
+  tel: string
+  linkedin: string
+  link: string
+}
+
+interface skills {
+  id: number
+  skillTitle: string
+}
+
 function Dropdown({
   isMobile,
   closeNavList,
   closeDropdown,
   showDropdown,
+  projectsData,
 }: {
   isMobile: boolean
   closeNavList: () => void
   closeDropdown: () => void
   showDropdown: boolean
+  projectsData?: SectionData[]
 }) {
   return (
     <>
@@ -24,21 +47,32 @@ function Dropdown({
               ? 'h-24 opacity-100 border'
               : 'h-0 opacity-0 overflow-hidden'
           }`}>
-          <AnchorLink
-            page="/"
-            anchor="#about"
-            label="About"
-            closeNavList={closeNavList}
-            closeDropdown={closeDropdown}
-          />
-
-          <AnchorLink
-            page="/"
-            anchor="#contact"
-            label="Contact"
-            closeNavList={closeNavList}
-            closeDropdown={closeDropdown}
-          />
+          {projectsData ? (
+            projectsData.map((project, index) => (
+              <AnchorLink
+                key={index}
+                anchor={`#project${index + 1}`}
+                label={`Project ${index + 1}`}
+                closeNavList={closeNavList}
+                closeDropdown={closeDropdown}
+              />
+            ))
+          ) : (
+            <>
+              <AnchorLink
+                anchor="#about"
+                label="About"
+                closeNavList={closeNavList}
+                closeDropdown={closeDropdown}
+              />
+              <AnchorLink
+                anchor="#contact"
+                label="Contact"
+                closeNavList={closeNavList}
+                closeDropdown={closeDropdown}
+              />
+            </>
+          )}
         </ul>
       </div>
     </>

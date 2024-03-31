@@ -84,7 +84,7 @@ function Home() {
 
   return (
     <>
-      <Nav />
+      <Nav projectsData={projectsData} />
       <main className="relative z-10">
         <Section
           data={userData}
@@ -93,7 +93,6 @@ function Home() {
           sectionColors={sectionColors}
           buttonColors={buttonColors}
           skillColors={skillColors}
-          sectionTitle="About"
           isMobile={isMobile}
         />
         {projectsData &&
@@ -103,11 +102,10 @@ function Home() {
                 key={index}
                 data={project}
                 dataType="project"
-                sectionId={`project${index}`}
+                sectionId={`project${index + 1}`}
                 sectionColors={sectionColors}
                 buttonColors={buttonColors}
                 skillColors={skillColors}
-                sectionTitle={project.title}
                 isMobile={isMobile}
               />
             )

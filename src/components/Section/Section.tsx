@@ -35,7 +35,6 @@ function Section({
   sectionColors,
   buttonColors,
   skillColors,
-  sectionTitle,
   isMobile,
 }: {
   data: SectionData | null
@@ -44,7 +43,6 @@ function Section({
   sectionColors: string[]
   buttonColors: string[]
   skillColors: string[]
-  sectionTitle: string
   isMobile: boolean
 }) {
   const [openAccordion, setOpenAccordion] = useState(false)

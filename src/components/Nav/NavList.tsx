@@ -1,15 +1,38 @@
 import NavLink from './NavLink'
 
+interface SectionData {
+  id: number
+  fullName: string
+  title: string
+  subtitle: string
+  shortDescription: string
+  longDescription: string
+  thumbnail: string
+  github: string
+  skills: skills[]
+  email: string
+  tel: string
+  linkedin: string
+  link: string
+}
+
+interface skills {
+  id: number
+  skillTitle: string
+}
+
 function NavList({
   isMobile,
   showNavList,
   handleDarkButtonClick,
   closeNavList,
+  projectsData,
 }: {
   isMobile: boolean
   showNavList: boolean
   handleDarkButtonClick: React.MouseEventHandler<HTMLButtonElement>
   closeNavList: () => void
+  projectsData?: SectionData[]
 }) {
   return (
     <>
@@ -21,19 +44,16 @@ function NavList({
           <ul className="text-center text-white font-bold text-xl">
             <NavLink
               isMobile={isMobile}
-              link="/"
-              linkType="dropdown"
               label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
             />
             <NavLink
               isMobile={isMobile}
-              link="/projects"
-              linkType="page"
               label="Projects"
               closeNavList={closeNavList}
               showNavList={showNavList}
+              projectsData={projectsData}
             />
             {/* <DarkModeButton handleDarkButtonClick={handleDarkButtonClick} /> */}
           </ul>
@@ -43,19 +63,16 @@ function NavList({
           <ul className="text-center text-white uppercase font-light flex text-lg">
             <NavLink
               isMobile={isMobile}
-              link="/"
-              linkType="dropdown"
               label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
             />
             <NavLink
               isMobile={isMobile}
-              link="/projects"
-              linkType="page"
               label="Projects"
               closeNavList={closeNavList}
               showNavList={showNavList}
+              projectsData={projectsData}
             />
             {/* <DarkModeButton handleDarkButtonClick={handleDarkButtonClick} /> */}
           </ul>
