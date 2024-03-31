@@ -30,13 +30,16 @@ function Home() {
   const [userData, setUserData] = useState<SectionData | null>(null)
   const [projectsData, setProjectsData] = useState<SectionData[] | []>([])
 
-  const sectionColors: string[] = ['purple-500', 'indigo-500', 'blue-500']
-  const skillColors: string[] = ['bg-violet-500', 'bg-blue-500']
+  const sectionColors: string[] = [
+    'bg-gradient-to-r from-purple-500 to-indigo-500',
+    'bg-gradient-to-r from-sky-500 to-indigo-500',
+  ]
+  const skillColors: string[] = ['bg-violet-500', 'bg-sky-500']
   const buttonColors: string[] = [
-    'from-cyan-400 to-blue-500',
-    'from-cyan-500 to-blue-500',
-    'from-purple-500 to-pink-500',
-    'from-purple-400 to-pink-500',
+    'bg-gradient-to-r from-cyan-400 to-blue-500',
+    'bg-gradient-to-r from-cyan-500 to-blue-500',
+    'bg-gradient-to-r from-purple-500 to-pink-500',
+    'bg-gradient-to-r from-purple-400 to-pink-500',
   ]
 
   const handleWindowSizeChange = () => {

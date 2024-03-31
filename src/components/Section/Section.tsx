@@ -30,21 +30,22 @@ interface skills {
 
 function Section({
   data,
+  dataType,
   sectionId,
   sectionColors,
   buttonColors,
   skillColors,
+  sectionTitle,
   isMobile,
-  dataType,
 }: {
   data: SectionData | null
+  dataType: string
   sectionId: string
   sectionColors: string[]
   buttonColors: string[]
   skillColors: string[]
   sectionTitle: string
   isMobile: boolean
-  dataType: string
 }) {
   const [openAccordion, setOpenAccordion] = useState(false)
 
@@ -55,10 +56,8 @@ function Section({
   return (
     <section
       id={sectionId}
-      className={`flex flex-col items-center w-full relative bg-${
+      className={`md:h-screen md:justify-center flex flex-col items-center w-full relative ${
         dataType === 'project' ? sectionColors[1] : sectionColors[0]
-      } md:h-screen md:justify-center bg-gradient-to-r from-transparent from-5% to-${
-        dataType === 'project' ? sectionColors[2] : sectionColors[1]
       } ${isMobile ? 'min-h-screen' : ''}`}>
       <div
         id="sectionProfile"
