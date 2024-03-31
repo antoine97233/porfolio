@@ -1,9 +1,11 @@
 function ContainerImage({
   image,
+  label,
   openAccordion,
   isMobile,
 }: {
   image?: string
+  label?: string
   openAccordion: boolean
   isMobile: boolean
 }) {
@@ -18,7 +20,7 @@ function ContainerImage({
       }`}>
       <div
         id="image"
-        className={`rounded-full pt-2 border shadow-lg overflow-hidden transition-all duration-500 ${
+        className={`rounded-full pt-2 border max-h-80 shadow-lg overflow-hidden transition-all duration-500 ${
           openAccordion && isMobile
             ? 'background-animate w-48 h-60 opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : ' w-48 h-0 opacity-0 '
@@ -26,8 +28,14 @@ function ContainerImage({
           (openAccordion && !isMobile) || (!openAccordion && !isMobile)
             ? 'background-animate w-64 h-auto opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : 'w-64 h-0 opacity-0 '
-        }`}>
-        {image && <img src={image} alt="User" />}
+        } flex justify-center items-center ${!isMobile ? 'h-80' : ''}`}>
+        {image ? (
+          <img src={image} alt={label} className="max-h-full max-w-full" />
+        ) : (
+          <span className="text-sm font-bold text-white uppercase">
+            No image
+          </span>
+        )}
       </div>
     </div>
   )

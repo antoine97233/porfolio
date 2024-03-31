@@ -72,43 +72,53 @@ function Section({
             <p className="mb-6 leading-6">{data?.shortDescription}</p>
             <div className="py-3" id="moreSection">
               <div className="ml-2 flex md:flex-row items-center gap-4">
-                <AccordionButton
-                  openAccordion={toggleAccordion}
-                  isOpenAccordion={openAccordion}
-                  buttonColors={buttonColors}
-                  dataType={dataType}
-                />
-                <ExternalLink
-                  link={data?.github}
-                  logo={GithubLogo}
-                  label="Github"
-                  isMobile={isMobile}
-                  buttonColors={buttonColors}
-                  dataType={dataType}
-                />
-                <ExternalLink
-                  link={
-                    data
-                      ? dataType === 'project'
-                        ? data.link
+                {data?.longDescription && (
+                  <AccordionButton
+                    openAccordion={toggleAccordion}
+                    isOpenAccordion={openAccordion}
+                    buttonColors={buttonColors}
+                    dataType={dataType}
+                  />
+                )}
+
+                {data?.github && (
+                  <ExternalLink
+                    link={data?.github}
+                    logo={GithubLogo}
+                    label="Github"
+                    isMobile={isMobile}
+                    buttonColors={buttonColors}
+                    dataType={dataType}
+                  />
+                )}
+                {((dataType === 'project' && data?.link) ||
+                  (dataType === 'user' && data?.link) ||
+                  (dataType === 'user' && !data?.link)) && (
+                  <ExternalLink
+                    link={
+                      dataType === 'project'
+                        ? data?.link
                         : require('../../assets/CV_Antoine_Jolivet.pdf')
-                      : ''
-                  }
-                  logo={LinkLogo}
-                  label={dataType === 'project' ? 'link' : 'CV'}
-                  isMobile={isMobile}
-                  buttonColors={buttonColors}
-                  dataType={dataType}
-                />
+                    }
+                    logo={LinkLogo}
+                    label={dataType === 'project' ? 'link' : 'CV'}
+                    isMobile={isMobile}
+                    buttonColors={buttonColors}
+                    dataType={dataType}
+                  />
+                )}
               </div>
-              <Accordion
-                openAccordion={openAccordion}
-                longDescription={data?.longDescription}
-              />
+              {data?.longDescription && (
+                <Accordion
+                  openAccordion={openAccordion}
+                  longDescription={data?.longDescription}
+                />
+              )}
             </div>
           </div>
           <ContainerImage
             image={data?.thumbnail ?? undefined}
+            label={dataType === 'project' ? data?.title : data?.fullName}
             openAccordion={openAccordion}
             isMobile={isMobile}
           />

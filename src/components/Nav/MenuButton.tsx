@@ -12,7 +12,7 @@ function MenuButton({
     <button onClick={handleButtonClick} className="z-20 relative ">
       <img
         src={BurgerBlack}
-        alt="Burger"
+        alt="Burger logo"
         className={`menu-icon  transition-all duration-200 ${
           showNavList
             ? 'absolute opacity-0 transform translate-x-1/2 '
@@ -23,7 +23,7 @@ function MenuButton({
       />
       <img
         src={CrossBlack}
-        alt="Cross"
+        alt="Cross logo"
         className={`menu-icon  transition-all duration-200 ${
           showNavList ? 'opacity-100 transform -translate-x-1/6 ' : 'opacity-0 '
         }`}
