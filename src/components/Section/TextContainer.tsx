@@ -47,31 +47,34 @@ function TextContainer({
 
   return (
     <>
-      {data && (
-        <>
-          {dataType === 'project' && data.title && (
-            <h1 className="text-5xl uppercase font-extrabold mb-4">
-              {data.title}
-            </h1>
-          )}
-          {data.subtitle && (
-            <h2 className="text-xl text-white uppercase  mb-6">
-              {data.subtitle}
-            </h2>
-          )}
-          <div className="mb-6 flex gap-2">
-            {data.skills.map(skill => (
-              <SkillElement
-                key={skill.id}
-                title={skill.skillTitle}
-                langage={skillLogos[skill.skillTitle]}
-                dataType={dataType}
-                skillColors={skillColors}
-              />
-            ))}
-          </div>
-        </>
-      )}
+      <h1 className="text-5xl uppercase font-extrabold mb-4">
+        {data
+          ? dataType === 'project'
+            ? data.title || 'No title'
+            : data.fullName || 'No username'
+          : 'test'}
+      </h1>
+      <h2 className="text-xl text-white uppercase mb-6">
+        {data
+          ? dataType === 'project'
+            ? data.subtitle || 'No subtitle'
+            : data.title || 'No title'
+          : 'test'}
+      </h2>
+      <div className="mb-6 flex gap-2">
+        {data?.skills.map(skill => (
+          <SkillElement
+            key={skill.id}
+            title={skill.skillTitle}
+            langage={skillLogos[skill.skillTitle]}
+            dataType={dataType}
+            skillColors={skillColors}
+          />
+        ))}
+      </div>
+      <p className="mb-6 leading-6">
+        {data ? data.shortDescription || 'No description' : 'test'}
+      </p>{' '}
     </>
   )
 }

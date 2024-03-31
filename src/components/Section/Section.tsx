@@ -69,7 +69,6 @@ function Section({
               dataType={dataType}
               skillColors={skillColors}
             />
-            <p className="mb-6 leading-6">{data?.shortDescription}</p>
             <div className="py-3" id="moreSection">
               <div className="ml-2 flex md:flex-row items-center gap-4">
                 {data?.longDescription && (
