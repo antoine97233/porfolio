@@ -80,6 +80,7 @@ function Section({
                     buttonColors={buttonColors}
                     dataType={dataType}
                     sectionId={sectionId}
+                    isMobile={isMobile}
                   />
                 )}
 

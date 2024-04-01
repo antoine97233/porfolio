@@ -6,22 +6,33 @@ function AccordionButton({
   buttonColors,
   dataType,
   sectionId,
+  isMobile,
 }: {
   openAccordion: () => void
   isOpenAccordion: boolean
   buttonColors: string[]
   dataType: string
   sectionId: string
+  isMobile: boolean
 }) {
   const href = (
     dataType: string,
     isOpenAccordion: boolean,
     sectionId: string,
+    isMobile: boolean,
   ): string => {
     if (dataType === 'user') {
-      return isOpenAccordion ? 'moreSectionUser' : 'about'
+      if (isMobile) {
+        return isOpenAccordion ? 'moreSectionUser' : 'about'
+      } else {
+        return isOpenAccordion ? 'about' : 'about'
+      }
     } else if (dataType === 'project') {
-      return isOpenAccordion ? `moreSection${sectionId}` : sectionId
+      if (isMobile) {
+        return isOpenAccordion ? `moreSection${sectionId}` : sectionId
+      } else {
+        return isOpenAccordion ? sectionId : sectionId
+      }
     }
     return '#'
   }
@@ -29,7 +40,7 @@ function AccordionButton({
   return (
     <div>
       <a
-        href={`#${href(dataType, isOpenAccordion, sectionId)}`}
+        href={`#${href(dataType, isOpenAccordion, sectionId, isMobile)}`}
         className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${
           isOpenAccordion
             ? `background-animate ${
