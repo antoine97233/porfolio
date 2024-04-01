@@ -3,6 +3,7 @@ import Nav from '../../components/Nav/Nav'
 import Section from '../../components/Section/Section'
 import axios from 'axios'
 import Footer from '../../components/Footer/Footer'
+import TopPageButton from '../../components/Footer/TopPageButton'
 
 interface SectionData {
   id: number

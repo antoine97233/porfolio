@@ -3,12 +3,7 @@ import Email from '../../assets/svg/email.svg'
 import Phone from '../../assets/svg/phone.svg'
 
 import FooterLink from './FooterLink'
-
-interface ContactData {
-  email: string
-  tel: string
-  linkedin: string
-}
+import TopPageButton from './TopPageButton'
 
 function Footer({
   isMobile,
@@ -27,8 +22,11 @@ function Footer({
       className={`w-full bg-black  h-20 z-20 ${
         isMobile ? 'relative' : 'fixed bottom-0'
       }`}>
-      <div className="container relative max-w-screen-lg mx-auto">
-        <div className="absolute flex flex-items right-0 gap-4 p-4">
+      <div
+        className={`container pt-4 px-4 relative max-w-screen-lg mx-auto flex justify-between ${
+          !isMobile ? 'flex-row-reverse' : ''
+        }`}>
+        <div className="flex gap-2">
           {linkedin && (
             <FooterLink
               link={linkedin}
@@ -53,6 +51,9 @@ function Footer({
               isMobile={isMobile}
             />
           )}
+        </div>
+        <div>
+          <TopPageButton isMobile={isMobile} />
         </div>
       </div>
     </footer>
