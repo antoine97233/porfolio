@@ -1,13 +1,15 @@
-function ContainerImage({
+function ImageContainer({
   image,
   label,
   openAccordion,
   isMobile,
+  bgButton,
 }: {
   image?: string
   label?: string
   openAccordion: boolean
   isMobile: boolean
+  bgButton: string
 }) {
   return (
     <div
@@ -22,11 +24,11 @@ function ContainerImage({
         id="image"
         className={`rounded-full pt-2 border max-h-80 shadow-lg overflow-hidden transition-all duration-500 ${
           openAccordion && isMobile
-            ? 'background-animate w-48 h-60 opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
+            ? `background-animate w-48 h-60 opacity-100 ${bgButton}`
             : ' w-48 h-0 opacity-0 '
         }${
           (openAccordion && !isMobile) || (!openAccordion && !isMobile)
-            ? 'background-animate w-64 h-80 opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
+            ? `background-animate w-64 h-80 opacity-100 ${bgButton}`
             : 'w-64 h-0 opacity-0 '
         } flex justify-center items-center ${!isMobile ? 'h-80' : ''}`}>
         {image ? (
@@ -41,4 +43,4 @@ function ContainerImage({
   )
 }
 
-export default ContainerImage
+export default ImageContainer

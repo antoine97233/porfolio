@@ -21,6 +21,16 @@ interface skills {
   skillTitle: string
 }
 
+interface LocalData {
+  id: number
+  bgSection: string
+  bgSkill: string
+  bgButton: string
+  hrefSection: string
+  hrefMoreSection: string
+  dataType: string
+}
+
 function NavList({
   isMobile,
   showNavList,

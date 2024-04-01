@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Accordion from './Accordion'
 import GithubLogo from '../../assets/svg/github.svg'
 import LinkLogo from '../../assets/svg/link.svg'
-import ContainerImage from './ContainerImage'
+import ImageContainer from './ImageContainer'
 import ExternalLink from './ExternalLink'
 import AccordionButton from './AccordionButton'
 import TextContainer from './TextContainer'
@@ -112,13 +112,12 @@ function Section({
             </div>
           </div>
           <Fade>
-            <ContainerImage
+            <ImageContainer
               image={data?.thumbnail ?? undefined}
-              label={
-                localData.dataType === 'project' ? data?.title : data?.fullName
-              }
+              label={data?.title}
               openAccordion={openAccordion}
               isMobile={isMobile}
+              bgButton={localData.bgButton}
             />
           </Fade>
         </div>
