@@ -1,47 +1,38 @@
 import Arrow from '../../assets/svg/arrow.svg'
 
+interface LocalData {
+  id: number
+  bgSection: string
+  bgSkill: string
+  bgButton: string
+  hrefSection: string
+  hrefMoreSection: string
+  dataType: string
+}
 function AccordionButton({
   openAccordion,
   isOpenAccordion,
-  buttonColors,
-  dataType,
-  sectionId,
   isMobile,
+  localData,
 }: {
   openAccordion: () => void
   isOpenAccordion: boolean
-  buttonColors: string
-  dataType: string
-  sectionId: string
   isMobile: boolean
+  localData: LocalData
 }) {
-  const href = (
-    dataType: string,
-    isOpenAccordion: boolean,
-    sectionId: string,
-    isMobile: boolean,
-  ): string => {
-    if (dataType === 'user') {
-      if (isMobile) {
-        return isOpenAccordion ? 'moreSectionUser' : 'about'
-      } else {
-        return isOpenAccordion ? 'about' : 'about'
-      }
-    } else if (dataType === 'project') {
-      if (isMobile) {
-        return isOpenAccordion ? `moreSection${sectionId}` : sectionId
-      } else {
-        return isOpenAccordion ? sectionId : sectionId
-      }
+  const href = (isOpenAccordion: boolean, isMobile: boolean): string => {
+    if (isMobile) {
+      return isOpenAccordion ? localData.hrefMoreSection : localData.hrefSection
+    } else {
+      return isOpenAccordion ? localData.hrefSection : localData.hrefSection
     }
-    return '#'
   }
 
   return (
     <div>
       <a
-        href={`#${href(dataType, isOpenAccordion, sectionId, isMobile)}`}
-        className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${`background-animate ${buttonColors}`}`}
+        href={`#${href(isOpenAccordion, isMobile)}`}
+        className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${`background-animate ${localData.bgButton}`}`}
         onClick={openAccordion}>
         {isOpenAccordion ? 'Less' : 'More'}
         <img

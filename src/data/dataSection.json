@@ -1,0 +1,66 @@
+{
+  "UserData": [
+    {
+      "id": 1,
+      "bgSection": "bg-gradient-to-r from-purple-500 to-indigo-500",
+      "bgSkill": "bg-purple-500",
+      "bgButton": "bg-gradient-to-r from-cyan-500 to-blue-500",
+      "hrefSection": "user1",
+      "hrefMoreSection": "moreUser1",
+      "dataType":"user"
+    }
+  ],
+
+  "ProjectsData": [
+    {
+      "id": 1,
+      "bgSection": "bg-gradient-to-r from-sky-500 to-indigo-500",
+      "bgSkill": "bg-sky-500",
+      "bgButton": "bg-gradient-to-r from-purple-400 to-pink-500",
+      "hrefSection": "project1",
+      "hrefMoreSection": "moreSectionProject1",
+      "dataType":"project"
+
+    },
+    {
+      "id": 2,
+      "bgSection": "bg-gradient-to-r from-teal-500 to-cyan-900",
+      "bgSkill": "bg-teal-600",
+      "bgButton": "bg-gradient-to-r from-emerald-400 to-cyan-400",
+      "hrefSection": "project2",
+      "hrefMoreSection": "moreSectionProject2",
+      "dataType":"project"
+
+    },
+    {
+      "id": 3,
+      "bgSection": "bg-gradient-to-r from-blue-600 to-indigo-900",
+      "bgSkill": "bg-blue-700",
+      "bgButton": "bg-gradient-to-r from-amber-300 to-yellow-500",
+      "hrefSection": "project3",
+      "hrefMoreSection": "moreSectionProject3",
+      "dataType":"project"
+
+    },
+    {
+      "id": 4,
+      "bgSection": "bg-gradient-to-r from-amber-600 to-amber-900",
+      "bgSkill": "bg-amber-600",
+      "bgButton": "bg-gradient-to-r from-red-700 to-rose-500",
+      "hrefSection": "project4",
+      "hrefMoreSection": "moreSectionProject4",
+      "dataType":"project"
+
+    },
+    {
+      "id": 5,
+      "bgSection": "bg-gradient-to-r from-blue-300 to-cyan-300",
+      "bgSkill": "bg-blue-400",
+      "bgButton": "bg-gradient-to-r from-fuchsia-500 to-pink-500",
+      "hrefSection": "project5",
+      "hrefMoreSection": "moreSectionProject5",
+      "dataType":"project"
+
+    }
+  ]
+}

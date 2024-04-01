@@ -3,7 +3,7 @@ import Nav from '../../components/Nav/Nav'
 import Section from '../../components/Section/Section'
 import axios from 'axios'
 import Footer from '../../components/Footer/Footer'
-import themesData from '../../data/themes.json'
+import localData from '../../data/dataSection.json'
 
 interface SectionData {
   id: number
@@ -26,11 +26,14 @@ interface skills {
   skillTitle: string
 }
 
-interface ThemeData {
+interface LocalData {
   id: number
-  section: string
-  skill: string
-  button: string
+  bgSection: string
+  bgSkill: string
+  bgButton: string
+  hrefSection: string
+  hrefMoreSection: string
+  dataType: string
 }
 
 function Home() {
@@ -38,8 +41,8 @@ function Home() {
   const [userData, setUserData] = useState<SectionData | null>(null)
   const [projectsData, setProjectsData] = useState<SectionData[] | []>([])
 
-  const ProjectThemes: ThemeData[] = themesData.ProjectsTheme
-  const UserTheme: ThemeData[] = themesData.UserTheme
+  const projectsLocalData: LocalData[] = localData.ProjectsData
+  const userLocalData: LocalData[] = localData.UserData
 
   const handleWindowSizeChange = () => {
     const isMobile = window.innerWidth <= 768
@@ -87,9 +90,7 @@ function Home() {
       <main className="relative z-10">
         <Section
           data={userData}
-          dataType="user"
-          sectionId="about"
-          theme={UserTheme[0]}
+          localData={userLocalData[0]}
           isMobile={isMobile}
         />
         {projectsData &&
@@ -98,9 +99,7 @@ function Home() {
               <Section
                 key={index}
                 data={project}
-                dataType="project"
-                sectionId={`project${index + 1}`}
-                theme={ProjectThemes[index]}
+                localData={projectsLocalData[index]}
                 isMobile={isMobile}
               />
             )

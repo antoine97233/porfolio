@@ -23,6 +23,16 @@ interface SectionData {
   link: string
 }
 
+interface LocalData {
+  id: number
+  bgSection: string
+  bgSkill: string
+  bgButton: string
+  hrefSection: string
+  hrefMoreSection: string
+  dataType: string
+}
+
 interface skills {
   id: number
   skillTitle: string
@@ -78,12 +88,10 @@ function ShortDescription({ data }: { data: SectionData | null }) {
 
 function TextContainer({
   data,
-  dataType,
-  skillColors,
+  localData,
 }: {
   data: SectionData | null
-  dataType: string
-  skillColors: string
+  localData: LocalData
 }) {
   const skillLogos: { [key: string]: any } = {
     React: ReactLogo,
@@ -98,9 +106,8 @@ function TextContainer({
     <>
       <Fade>
         <Slide direction="up">
-          {' '}
-          <Title data={data} dataType={dataType} />
-          <Subtitle data={data} dataType={dataType} />
+          <Title data={data} dataType={localData.dataType} />
+          <Subtitle data={data} dataType={localData.dataType} />
         </Slide>
       </Fade>
 
@@ -110,8 +117,7 @@ function TextContainer({
             key={skill.id}
             title={skill.skillTitle}
             langage={skillLogos[skill.skillTitle]}
-            dataType={dataType}
-            skillColors={skillColors}
+            bgSkill={localData.bgSkill}
           />
         ))}
       </div>
