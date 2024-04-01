@@ -5,28 +5,42 @@ function AccordionButton({
   isOpenAccordion,
   buttonColors,
   dataType,
+  sectionId,
 }: {
   openAccordion: () => void
   isOpenAccordion: boolean
   buttonColors: string[]
   dataType: string
+  sectionId: string
 }) {
+  const href = (
+    dataType: string,
+    isOpenAccordion: boolean,
+    sectionId: string,
+  ): string => {
+    if (dataType === 'user') {
+      return isOpenAccordion ? 'moreSectionUser' : 'about'
+    } else if (dataType === 'project') {
+      return isOpenAccordion ? `moreSection${sectionId}` : sectionId
+    }
+    return '#'
+  }
+
   return (
     <div>
       <a
-        href={`${isOpenAccordion ? '#moreSection' : '#about'}`}
+        href={`#${href(dataType, isOpenAccordion, sectionId)}`}
         className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${
           isOpenAccordion
             ? `background-animate ${
                 dataType === 'user' ? buttonColors[0] : buttonColors[2]
               }`
-            : `background-animate  ${
+            : `background-animate ${
                 dataType === 'user' ? buttonColors[1] : buttonColors[3]
               }`
         }`}
         onClick={openAccordion}>
         {isOpenAccordion ? 'Less' : 'More'}
-
         <img
           src={Arrow}
           alt="Github Logo"

@@ -52,14 +52,14 @@ function TextContainer({
           ? dataType === 'project'
             ? data.title || 'No title'
             : data.fullName || 'No username'
-          : 'test'}
+          : 'Not mentionned'}
       </h1>
       <h2 className="text-xl text-white uppercase mb-6">
         {data
           ? dataType === 'project'
             ? data.subtitle || 'No subtitle'
             : data.title || 'No title'
-          : 'test'}
+          : 'Not mentionned'}
       </h2>
       <div className="mb-6 flex gap-2">
         {data?.skills.map(skill => (
@@ -73,7 +73,7 @@ function TextContainer({
         ))}
       </div>
       <p className="mb-6 leading-6">
-        {data ? data.shortDescription || 'No description' : 'test'}
+        {data ? data.shortDescription || 'No description' : 'Not mentionned'}
       </p>{' '}
     </>
   )

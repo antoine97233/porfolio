@@ -57,9 +57,7 @@ function Section({
       className={`md:h-screen md:justify-center flex flex-col items-center w-full relative ${
         dataType === 'project' ? sectionColors[1] : sectionColors[0]
       } ${isMobile ? 'min-h-screen' : ''}`}>
-      <div
-        id="sectionProfile"
-        className="pt-32 pb-10 max-w-screen-lg mx-auto h-3/4 rounded px-4">
+      <div className="pt-32 pb-10 max-w-screen-lg mx-auto h-3/4 rounded px-4">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="md:col-span-2">
             <TextContainer
@@ -67,7 +65,13 @@ function Section({
               dataType={dataType}
               skillColors={skillColors}
             />
-            <div className="py-3" id="moreSection">
+            <div
+              className="py-3"
+              id={
+                dataType === 'user'
+                  ? 'moreSectionUser'
+                  : 'moreSection' + sectionId
+              }>
               <div className="ml-2 flex md:flex-row items-center gap-4">
                 {data?.longDescription && (
                   <AccordionButton
@@ -75,6 +79,7 @@ function Section({
                     isOpenAccordion={openAccordion}
                     buttonColors={buttonColors}
                     dataType={dataType}
+                    sectionId={sectionId}
                   />
                 )}
 
