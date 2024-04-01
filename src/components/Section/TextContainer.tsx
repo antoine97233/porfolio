@@ -5,6 +5,7 @@ import PhpLogo from '../../assets/svg/php.svg'
 import ReactLogo from '../../assets/svg/react.svg'
 import TypescriptLogo from '../../assets/svg/Typescript.svg'
 import JavascriptLogo from '../../assets/svg/javascript.svg'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 interface SectionData {
   id: number
@@ -95,8 +96,14 @@ function TextContainer({
 
   return (
     <>
-      <Title data={data} dataType={dataType} />
-      <Subtitle data={data} dataType={dataType} />
+      <Fade>
+        <Slide direction="up">
+          {' '}
+          <Title data={data} dataType={dataType} />
+          <Subtitle data={data} dataType={dataType} />
+        </Slide>
+      </Fade>
+
       <div className="mb-6 flex gap-2">
         {data?.skills.map(skill => (
           <SkillElement

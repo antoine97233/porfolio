@@ -6,6 +6,7 @@ import ContainerImage from './ContainerImage'
 import ExternalLink from './ExternalLink'
 import AccordionButton from './AccordionButton'
 import TextContainer from './TextContainer'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 interface SectionData {
   id: number
@@ -60,11 +61,14 @@ function Section({
       <div className="pt-32 pb-10 max-w-screen-lg mx-auto h-3/4 rounded px-4">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="md:col-span-2">
-            <TextContainer
-              data={data}
-              dataType={dataType}
-              skillColors={skillColors}
-            />
+            <Fade>
+              <TextContainer
+                data={data}
+                dataType={dataType}
+                skillColors={skillColors}
+              />
+            </Fade>
+
             <div
               className="py-3"
               id={
@@ -119,12 +123,14 @@ function Section({
               )}
             </div>
           </div>
-          <ContainerImage
-            image={data?.thumbnail ?? undefined}
-            label={dataType === 'project' ? data?.title : data?.fullName}
-            openAccordion={openAccordion}
-            isMobile={isMobile}
-          />
+          <Fade>
+            <ContainerImage
+              image={data?.thumbnail ?? undefined}
+              label={dataType === 'project' ? data?.title : data?.fullName}
+              openAccordion={openAccordion}
+              isMobile={isMobile}
+            />
+          </Fade>
         </div>
       </div>
     </section>
