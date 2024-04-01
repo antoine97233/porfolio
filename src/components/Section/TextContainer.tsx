@@ -27,6 +27,54 @@ interface skills {
   skillTitle: string
 }
 
+function Title({
+  data,
+  dataType,
+}: {
+  data: SectionData | null
+  dataType: string
+}) {
+  if (data) {
+    return (
+      <h1 className="text-5xl uppercase font-extrabold mb-4">
+        {dataType === 'project'
+          ? data.title || 'No title'
+          : data.fullName || 'No username'}
+      </h1>
+    )
+  }
+  return (
+    <h1 className="text-5xl uppercase font-extrabold mb-4">Not mentionned</h1>
+  )
+}
+
+function Subtitle({
+  data,
+  dataType,
+}: {
+  data: SectionData | null
+  dataType: string
+}) {
+  if (data) {
+    return (
+      <h2 className="text-xl text-white uppercase mb-6">
+        {dataType === 'project'
+          ? data.subtitle || 'No subtitle'
+          : data.title || 'No title'}
+      </h2>
+    )
+  }
+  return <h2 className="text-xl text-white uppercase mb-6">Not mentionned</h2>
+}
+
+function ShortDescription({ data }: { data: SectionData | null }) {
+  return (
+    <p className="mb-6 leading-6">
+      {data ? data.shortDescription || 'No description' : 'Not mentionned'}
+    </p>
+  )
+}
+
 function TextContainer({
   data,
   dataType,
@@ -47,20 +95,8 @@ function TextContainer({
 
   return (
     <>
-      <h1 className="text-5xl uppercase font-extrabold mb-4">
-        {data
-          ? dataType === 'project'
-            ? data.title || 'No title'
-            : data.fullName || 'No username'
-          : 'Not mentionned'}
-      </h1>
-      <h2 className="text-xl text-white uppercase mb-6">
-        {data
-          ? dataType === 'project'
-            ? data.subtitle || 'No subtitle'
-            : data.title || 'No title'
-          : 'Not mentionned'}
-      </h2>
+      <Title data={data} dataType={dataType} />
+      <Subtitle data={data} dataType={dataType} />
       <div className="mb-6 flex gap-2">
         {data?.skills.map(skill => (
           <SkillElement
@@ -72,9 +108,7 @@ function TextContainer({
           />
         ))}
       </div>
-      <p className="mb-6 leading-6">
-        {data ? data.shortDescription || 'No description' : 'Not mentionned'}
-      </p>{' '}
+      <ShortDescription data={data} />
     </>
   )
 }
