@@ -21,7 +21,7 @@ interface skills {
   skillTitle: string
 }
 
-function Dropdown({
+function DropdownProject({
   isMobile,
   closeNavList,
   closeDropdown,
@@ -34,24 +34,16 @@ function Dropdown({
   showDropdown: boolean
   projectsData?: SectionData[]
 }) {
-  const dropdownHeight = projectsData
-    ? showDropdown
-      ? 48
-      : 0
-    : showDropdown
-    ? 24
-    : 0
-
   const dropdownClass = `transition-all duration-300 overflow-hidden rounded ${
     isMobile ? '' : 'w-full absolute translate-y-2 bg-black shadow-lg border'
-  } h-${dropdownHeight} ${
-    showDropdown ? 'opacity-100 border' : 'opacity-0 overflow-hidden'
+  }  ${
+    showDropdown ? 'opacity-100 border h-48' : 'opacity-0 overflow-hidden h-0'
   }`
 
   return (
     <div className="w-full relative flex justify-center">
       <ul className={dropdownClass}>
-        {projectsData ? (
+        {projectsData &&
           projectsData.map((project, index) => (
             <AnchorLink
               key={index}
@@ -60,26 +52,10 @@ function Dropdown({
               closeNavList={closeNavList}
               closeDropdown={closeDropdown}
             />
-          ))
-        ) : (
-          <>
-            <AnchorLink
-              anchor="#about"
-              label="About"
-              closeNavList={closeNavList}
-              closeDropdown={closeDropdown}
-            />
-            <AnchorLink
-              anchor="#contact"
-              label="Contact"
-              closeNavList={closeNavList}
-              closeDropdown={closeDropdown}
-            />
-          </>
-        )}
+          ))}
       </ul>
     </div>
   )
 }
 
-export default Dropdown
+export default DropdownProject

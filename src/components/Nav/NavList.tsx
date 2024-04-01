@@ -44,17 +44,18 @@ function NavList({
           <ul className="text-center text-white font-bold text-xl">
             <NavLink
               isMobile={isMobile}
-              label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
+              label="home"
             />
             <NavLink
               isMobile={isMobile}
-              label="Projects"
               closeNavList={closeNavList}
               showNavList={showNavList}
               projectsData={projectsData}
+              label="projects"
             />
+
             {/* <DarkModeButton handleDarkButtonClick={handleDarkButtonClick} /> */}
           </ul>
         </div>
@@ -63,16 +64,16 @@ function NavList({
           <ul className="text-center text-white uppercase font-light flex text-lg">
             <NavLink
               isMobile={isMobile}
-              label="Home"
               closeNavList={closeNavList}
               showNavList={showNavList}
+              label="home"
             />
             <NavLink
               isMobile={isMobile}
-              label="Projects"
               closeNavList={closeNavList}
               showNavList={showNavList}
               projectsData={projectsData}
+              label="projects"
             />
             {/* <DarkModeButton handleDarkButtonClick={handleDarkButtonClick} /> */}
           </ul>

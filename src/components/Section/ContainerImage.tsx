@@ -26,7 +26,7 @@ function ContainerImage({
             : ' w-48 h-0 opacity-0 '
         }${
           (openAccordion && !isMobile) || (!openAccordion && !isMobile)
-            ? 'background-animate w-64 h-auto opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
+            ? 'background-animate w-64 h-80 opacity-100 bg-gradient-to-r from-cyan-500 to-blue-500'
             : 'w-64 h-0 opacity-0 '
         } flex justify-center items-center ${!isMobile ? 'h-80' : ''}`}>
         {image ? (

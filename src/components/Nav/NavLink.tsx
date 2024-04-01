@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+
 import Dropdown from './Dropdown'
+import DropdownProject from './DropdownProjects'
+import DropdownUser from './DropdownUser'
 
 interface SectionData {
   id: number
@@ -24,16 +27,16 @@ interface skills {
 
 function NavLink({
   isMobile,
-  label,
   closeNavList,
   showNavList,
   projectsData,
+  label,
 }: {
   isMobile: boolean
-  label: string
   closeNavList: () => void
   showNavList: boolean
   projectsData?: SectionData[]
+  label: string
 }) {
   const [showDropdown, setShowDropdown] = useState(false)
 
@@ -55,13 +58,22 @@ function NavLink({
         {label}
       </button>
 
-      <Dropdown
-        isMobile={isMobile}
-        closeNavList={closeNavList}
-        closeDropdown={() => setShowDropdown(false)}
-        showDropdown={showDropdown}
-        projectsData={projectsData}
-      />
+      {projectsData ? (
+        <DropdownProject
+          isMobile={isMobile}
+          closeNavList={closeNavList}
+          closeDropdown={() => setShowDropdown(false)}
+          showDropdown={showDropdown}
+          projectsData={projectsData}
+        />
+      ) : (
+        <DropdownUser
+          isMobile={isMobile}
+          closeNavList={closeNavList}
+          closeDropdown={() => setShowDropdown(false)}
+          showDropdown={showDropdown}
+        />
+      )}
     </li>
   )
 }
