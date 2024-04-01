@@ -3,7 +3,7 @@ import Nav from '../../components/Nav/Nav'
 import Section from '../../components/Section/Section'
 import axios from 'axios'
 import Footer from '../../components/Footer/Footer'
-import TopPageButton from '../../components/Footer/TopPageButton'
+import themesData from '../../data/themes.json'
 
 interface SectionData {
   id: number
@@ -26,22 +26,20 @@ interface skills {
   skillTitle: string
 }
 
+interface ThemeData {
+  id: number
+  section: string
+  skill: string
+  button: string
+}
+
 function Home() {
   const [isMobile, setMobile] = useState(window.innerWidth <= 768)
   const [userData, setUserData] = useState<SectionData | null>(null)
   const [projectsData, setProjectsData] = useState<SectionData[] | []>([])
 
-  const sectionColors: string[] = [
-    'bg-gradient-to-r from-purple-500 to-indigo-500',
-    'bg-gradient-to-r from-sky-500 to-indigo-500',
-  ]
-  const skillColors: string[] = ['bg-violet-500', 'bg-sky-500']
-  const buttonColors: string[] = [
-    'bg-gradient-to-r from-cyan-400 to-blue-500',
-    'bg-gradient-to-r from-cyan-500 to-blue-500',
-    'bg-gradient-to-r from-purple-500 to-pink-500',
-    'bg-gradient-to-r from-purple-400 to-pink-500',
-  ]
+  const ProjectThemes: ThemeData[] = themesData.ProjectsTheme
+  const UserTheme: ThemeData[] = themesData.UserTheme
 
   const handleWindowSizeChange = () => {
     const isMobile = window.innerWidth <= 768
@@ -91,9 +89,7 @@ function Home() {
           data={userData}
           dataType="user"
           sectionId="about"
-          sectionColors={sectionColors}
-          buttonColors={buttonColors}
-          skillColors={skillColors}
+          theme={UserTheme[0]}
           isMobile={isMobile}
         />
         {projectsData &&
@@ -104,9 +100,7 @@ function Home() {
                 data={project}
                 dataType="project"
                 sectionId={`project${index + 1}`}
-                sectionColors={sectionColors}
-                buttonColors={buttonColors}
-                skillColors={skillColors}
+                theme={ProjectThemes[index]}
                 isMobile={isMobile}
               />
             )

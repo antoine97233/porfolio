@@ -83,7 +83,7 @@ function TextContainer({
 }: {
   data: SectionData | null
   dataType: string
-  skillColors: string[]
+  skillColors: string
 }) {
   const skillLogos: { [key: string]: any } = {
     React: ReactLogo,

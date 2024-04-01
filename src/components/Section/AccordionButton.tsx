@@ -10,7 +10,7 @@ function AccordionButton({
 }: {
   openAccordion: () => void
   isOpenAccordion: boolean
-  buttonColors: string[]
+  buttonColors: string
   dataType: string
   sectionId: string
   isMobile: boolean
@@ -41,15 +41,7 @@ function AccordionButton({
     <div>
       <a
         href={`#${href(dataType, isOpenAccordion, sectionId, isMobile)}`}
-        className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${
-          isOpenAccordion
-            ? `background-animate ${
-                dataType === 'user' ? buttonColors[0] : buttonColors[2]
-              }`
-            : `background-animate ${
-                dataType === 'user' ? buttonColors[1] : buttonColors[3]
-              }`
-        }`}
+        className={`h-10 text-sm bg-violet-500 border border-white p-3 rounded uppercase shadow-lg transition-all duration-100 transform hover:-translate-y-0.5 font-bold flex items-center hover:text-white ${`background-animate ${buttonColors}`}`}
         onClick={openAccordion}>
         {isOpenAccordion ? 'Less' : 'More'}
         <img

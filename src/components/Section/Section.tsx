@@ -6,7 +6,7 @@ import ContainerImage from './ContainerImage'
 import ExternalLink from './ExternalLink'
 import AccordionButton from './AccordionButton'
 import TextContainer from './TextContainer'
-import { Fade, Slide } from 'react-awesome-reveal'
+import { Fade } from 'react-awesome-reveal'
 
 interface SectionData {
   id: number
@@ -29,21 +29,24 @@ interface skills {
   skillTitle: string
 }
 
+interface ThemeData {
+  id: number
+  section: string
+  skill: string
+  button: string
+}
+
 function Section({
   data,
   dataType,
   sectionId,
-  sectionColors,
-  buttonColors,
-  skillColors,
+  theme,
   isMobile,
 }: {
   data: SectionData | null
   dataType: string
   sectionId: string
-  sectionColors: string[]
-  buttonColors: string[]
-  skillColors: string[]
+  theme: ThemeData
   isMobile: boolean
 }) {
   const [openAccordion, setOpenAccordion] = useState(false)
@@ -56,7 +59,7 @@ function Section({
     <section
       id={sectionId}
       className={`md:h-screen md:justify-center flex flex-col items-center w-full relative ${
-        dataType === 'project' ? sectionColors[1] : sectionColors[0]
+        theme.section
       } ${isMobile ? 'min-h-screen' : ''}`}>
       <div className="pt-32 pb-10 max-w-screen-lg mx-auto h-3/4 rounded px-4">
         <div className="grid grid-cols-1 md:grid-cols-3">
@@ -65,7 +68,7 @@ function Section({
               <TextContainer
                 data={data}
                 dataType={dataType}
-                skillColors={skillColors}
+                skillColors={theme.skill}
               />
             </Fade>
 
@@ -81,7 +84,7 @@ function Section({
                   <AccordionButton
                     openAccordion={toggleAccordion}
                     isOpenAccordion={openAccordion}
-                    buttonColors={buttonColors}
+                    buttonColors={theme.button}
                     dataType={dataType}
                     sectionId={sectionId}
                     isMobile={isMobile}
@@ -94,8 +97,7 @@ function Section({
                     logo={GithubLogo}
                     label="Github"
                     isMobile={isMobile}
-                    buttonColors={buttonColors}
-                    dataType={dataType}
+                    buttonColors={theme.button}
                   />
                 )}
                 {((dataType === 'project' && data?.link) ||
@@ -110,8 +112,7 @@ function Section({
                     logo={LinkLogo}
                     label={dataType === 'project' ? 'link' : 'CV'}
                     isMobile={isMobile}
-                    buttonColors={buttonColors}
-                    dataType={dataType}
+                    buttonColors={theme.button}
                   />
                 )}
               </div>
