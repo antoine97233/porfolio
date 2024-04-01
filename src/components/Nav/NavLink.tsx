@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-
-import Dropdown from './Dropdown'
 import DropdownProject from './DropdownProjects'
 import DropdownUser from './DropdownUser'
 

@@ -61,7 +61,7 @@ function NavList({
         </div>
       ) : (
         <div className="hidden md:block">
-          <ul className="text-center text-white uppercase font-light flex text-lg">
+          <ul className="text-center text-white uppercase font-light flex text-lg gap-2">
             <NavLink
               isMobile={isMobile}
               closeNavList={closeNavList}
